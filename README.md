@@ -1,5 +1,5 @@
 <h1 style="color: #46A8DF" align="center">
-My Chat Backend
+My Chat Frontend
 </h1>
 
 <div align="center">
