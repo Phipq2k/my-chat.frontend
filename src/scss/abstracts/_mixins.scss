@@ -1,0 +1,20 @@
+@mixin OwnMessageColor($isOwn: true) {
+    @if($isOwn) {
+        background-color: var(--cl-primary-default);
+    }
+    @else {
+        background-color: rgb(235, 231, 231);
+    }
+}
+
+@mixin ToastType($color, $background, $url) {
+    color: $color;
+    background-color: $background;
+    background-image: $url
+}
+
+@mixin MessageTypeFile($isFile: true) {
+    @if($isFile) {
+        background-color: var(--cl-background-default);
+    }
+}

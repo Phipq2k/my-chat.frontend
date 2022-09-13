@@ -1,0 +1,47 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    .modalWrapper {
+        background-color: #fff;
+        border-radius: 5px;
+        height: auto;
+        padding: 10px;
+        .tabControlModalContainer {
+            height: 32px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            // padding: 2px;
+            .modalCloseButton {
+                background-color: transparent;
+                border: none;
+                outline: none;
+                padding: 0;
+                color: red;
+                vertical-align: middle;
+                font-size: 32px;
+                &:active {
+                    font-size: 31px;
+                }
+            }
+        }
+        .modalContainer {
+            margin: 0;
+            padding: 0;
+            .titleModal {
+                font-size: 24px;
+                color: var(--cl-primary-default);
+                font-weight: 800;
+                margin: 0 0 10px 10px;
+            }
+        }
+    }
+}

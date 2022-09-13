@@ -1,0 +1,136 @@
+.messageContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    .messageAvatar {
+        flex: 1;
+        text-align: center;
+        .messageImg {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+    }
+    .messageContentBox {
+        flex: 12;
+        display: flex;
+        flex-direction: column;
+        .messageContentTop {
+            display: flex;
+            align-items: center;
+            .messageOptions {
+                display: flex;
+                margin: 0 4px;
+                width: 28px;
+                height: 28px;
+                align-items: center;
+                justify-content: center;
+                color: var(--cl-background-default);
+                background-color: rgb(119, 117, 117);
+                border-radius: 50%;
+                visibility: hidden;
+                cursor: pointer;
+                opacity: 0;
+                transition: visibility 0s, opacity 0.5s linear;
+            }
+            .messageContent {
+                padding: 5px 10px;
+                border-radius: 16px;
+                max-width: 440px;
+                cursor: default;
+                @include OwnMessageColor(false);
+                .messageText {
+                    color: black;
+                    word-wrap: break-word;
+                    // max-width: 50%;
+                }
+                .messageTime {
+                    font-size: 14px;
+                    color: rgb(106, 106, 106);
+                }
+                &.file {
+                    padding: 5px 0;
+                    background-color: var(--cl-background-default);
+                }
+                .imageContainer {
+                    max-width: 200px;
+                    .imageItem {
+                        width: 100%;
+                        border-radius: 10px;
+                    }
+                }
+                .videoContainer {
+                    max-width: 200px;
+                    .videoItem {
+                        width: 100%;
+                        border-radius: 10px;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+                .audioContainer {
+                    max-width: 400px;
+                    .audioItem {
+                        color: red;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+                .iconContainer {
+                    width: 200px;
+                    display: flex;
+                    background-color: #ccc;
+                    border-radius: 10px;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    cursor: pointer;
+                    .iconItem {
+                        flex: 1;
+                    }
+                    .fileName {
+                        flex: 6;
+                        color: white;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        &:hover {
+            .messageOptions {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    &.own {
+        .messageContentBox {
+            .messageContentTop {
+                justify-content: flex-end;
+                .messageContent {
+                    @include OwnMessageColor(true);
+                    .messageText {
+                        color: white;
+                    }
+                    .messageTime {
+                        color: rgb(106, 106, 106);
+                    }
+                    &.file {
+                        padding: 5px 0;
+                        background-color: var(--cl-background-default);
+                    }
+                }
+            }
+        }
+    }
+    .messageBottom {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+}

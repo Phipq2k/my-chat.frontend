@@ -1,0 +1,12 @@
+.autocompleteContainer {
+    background-color: rgb(248, 245, 245);
+    width: 100%;
+    position: absolute;
+    box-shadow: 0 0 4px 0px #333;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    max-height: 600px;
+    overflow-y: scroll;
+}

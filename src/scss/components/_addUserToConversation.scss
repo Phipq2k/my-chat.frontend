@@ -1,0 +1,38 @@
+.addUserToConversationContainer {
+    display: flex;
+    height: 96px;
+    position: relative;
+    .addUserToConversationTextBox {
+        flex: 1;
+        height: 100%;
+        background-color: #ccc;
+        padding: 8px;
+        textarea {
+            border: 1px solid rgb(109, 107, 107);
+            outline: none;
+            border-radius: 4px;
+            width: 90%;
+            height: auto;
+            font-size: 16px;
+            resize: none;
+            padding: 2px;
+            // background-color: var(--cl-background-input);
+            &:focus {
+                outline: 1px solid var(--cl-primary-default);
+            }
+        }
+    }
+    button {
+        position: absolute;
+        background-color: var(--cl-primary-default);
+        border: none;
+        border-radius: 4px;
+        padding: 4px;
+        color: white;
+        bottom: 8px;
+        right: 8px;
+        &:hover {
+            background-color: var(--cl-primary-info);
+        }
+    }
+}
