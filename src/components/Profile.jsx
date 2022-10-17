@@ -1,4 +1,4 @@
-import { link } from "../constants/link";
+import {defaultAvatar } from "../constants/link";
 import { AiFillCamera } from "react-icons/ai";
 import { BsFillPenFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
@@ -39,7 +39,7 @@ function Profile({ user,onUpdate, ...props }) {
     ) {
       return setDisabled(true);
     } else {
-      window.confirm("Hủy thay đổi?") && setDisabled(true);
+      window.confirm("Bạn có chắc hủy thay đổi?") && setDisabled(true);
     }
   };
 
@@ -64,7 +64,6 @@ function Profile({ user,onUpdate, ...props }) {
     values,
     handleSubmit,
     errorsValidation,
-    loading,
     setValues,
     setErrorsValidation,
   } = useForm({
@@ -81,7 +80,7 @@ function Profile({ user,onUpdate, ...props }) {
             src={
               currentUser.user_avatar
                 ? `${apiURL.default}${apiURL.file.avatar.show}${currentUser.user_avatar}`
-                : link.images + "ricado1.jpg"
+                : defaultAvatar
             }
             alt=""
           />

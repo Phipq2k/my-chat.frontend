@@ -6,7 +6,7 @@ import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
 import { MdMail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
-import { link } from "../constants/link";
+import { images } from "../constants/link";
 import { LoginAuthAction } from "../redux/actions/auth-action";
 import { useForm } from "../hooks/useForm";
 import { ThreeDots } from "react-loader-spinner";
@@ -35,7 +35,7 @@ function LoginPage(props) {
     <React.Fragment>
       <div className="formContainer">
         <div className="form">
-          <img src={link.images + "logo-resize.png"} alt="logo" />
+          <img src={images + "logo-resize.png"} alt="logo" />
           <form id="login" className="loginForm" onSubmit={handleSubmit}>
             <div className="formInput">
               <label htmlFor="userEmail">

@@ -1,5 +1,5 @@
 export const apiURL = {
-    default: 'http://localhost:5000',
+    default: 'http://127.0.0.1:5000',
     authentication: {
         login: "/authentication/local/signin/",
         register: "/authentication/local/signup/",

@@ -43,7 +43,7 @@ import {
 import { useNavigate, useOutletContext } from "react-router-dom";
 import File from "../components/File";
 import { sendMessageFile } from "../redux/actions/file-action";
-import { link } from "../constants/link";
+import { defaultAvatar } from "../constants/link";
 import { useTimeStamp } from "../hooks/useTimeStamp";
 import AutoComplete from "../components/AutoComplete";
 import { apiURL } from "../constants/api";
@@ -259,7 +259,7 @@ function HomePage(props) {
         setDisabled(true);
       })
       .catch((err) => {
-        window.alert("Thay đổi không thành công");
+        window.alert(err.data.message);
       });
   };
 
@@ -355,7 +355,7 @@ function HomePage(props) {
                         src={
                           user.user_avatar
                             ? `${apiURL.default}${apiURL.file.avatar.show}${user.user_avatar}`
-                            : link.images + "ricado1.jpg"
+                            : defaultAvatar
                         }
                         alt={user.user_name}
                       />
@@ -434,7 +434,7 @@ function HomePage(props) {
                   src={
                     my?.user_avatar
                       ? `${apiURL.default}${apiURL.file.avatar.show}${my.user_avatar}`
-                      : link.images + "tokuda1.jpg"
+                      : defaultAvatar
                   }
                   alt=""
                 />
@@ -518,7 +518,7 @@ function HomePage(props) {
                         src={
                           partner.user_avatar
                             ? `${apiURL.default}${apiURL.file.avatar.show}${partner.user_avatar}`
-                            : link.images + "tokuda1.jpg"
+                            : defaultAvatar
                         }
                         alt="avatar"
                       />

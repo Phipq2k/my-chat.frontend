@@ -24,7 +24,6 @@ instance.interceptors.request.use(
                 return config;
             }
             config.headers["Authorization"] = `Bearer ${token}`;
-            //   console.log(config);
         }
         return config;
     },
@@ -35,7 +34,6 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
     (res) => {
-        // console.log(res);
         return res;
     },
     async(err) => {
@@ -43,14 +41,23 @@ instance.interceptors.response.use(
         if (err.response.status === 401 && !originalConfig._retry) {
             originalConfig._retry = true;
             try {
-                // console.log(err);
-                const token = TokenService.getLocalRefreshToken();
-                instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-                const rs = await instance.post(apiURL.authentication.refresh_token);
-                const { access_token } = rs.data;
-                TokenService.updateLocalAccessToken(access_token);
-                return instance(originalConfig);
-
+                if (err.config.url === apiURL.authentication.refresh_token) {
+                    const confirmUnAuth = window.confirm('Phiên đăng nhập của bạn đã hết hạn');
+                    if (confirmUnAuth) {
+                        TokenService.removeUser();
+                        window.location.reload();
+                    }
+                    if (confirmUnAuth === false) {
+                        window.location.reload();
+                    }
+                } else {
+                    const token = TokenService.getLocalRefreshToken();
+                    instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+                    const rs = await instance.post(apiURL.authentication.refresh_token);
+                    const { access_token } = rs.data;
+                    TokenService.updateLocalAccessToken(access_token);
+                    return instance(originalConfig);
+                }
             } catch (_error) {
                 return Promise.reject(_error);
             }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import { apiURL } from "../constants/api";
-import { link } from "../constants/link";
+import { defaultAvatar} from "../constants/link";
 import TypeInstance from "../constants/type";
 export default function Conversation({
   conversation,
@@ -42,7 +42,7 @@ export default function Conversation({
           src={
             user.user_avatar
               ? `${apiURL.default}${apiURL.file.avatar.show}${user.user_avatar}`
-              : link.images + "tokuda1.jpg"
+              : defaultAvatar
           }
           alt="avatar"
         />

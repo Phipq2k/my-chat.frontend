@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { BsThreeDots } from "react-icons/bs";
 import { apiURL } from "../constants/api";
-import { link } from "../constants/link";
+import { defaultAvatar } from "../constants/link";
 import TypeInstance from "../constants/type";
 import { useTimeStamp } from "../hooks/useTimeStamp";
 import { downloadMessageFile } from "../redux/actions/file-action";
@@ -24,7 +24,7 @@ function Message({ own, message, ...props }) {
             src={
               message.sender.user_avatar
                 ? `${apiURL.default}${apiURL.file.avatar.show}${message.sender.user_avatar}`
-                : link.images + "tokuda1.jpg"
+                : defaultAvatar
             }
             alt="avatar"
           />
